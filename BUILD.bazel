@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary")
+
+go_binary(
+    name = "hello",
+    srcs = ["hello.go"],
+    gc_linkopts = [
+        "-extldflags",
+        "-static-pie",
+        # "-extld=gcc",
+        # "-linkmode=external",
+    ],
+    linkmode = "pie",
+    visibility = ["//visibility:public"],
+)
